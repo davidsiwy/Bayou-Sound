@@ -18,29 +18,14 @@ assets/img/gallery/        gallery photos (see names below)
 assets/img/plans/          level-1.png, level-2.png, level-3.png
 ```
 
-## Adding photos
+## Page structure
 
-Drop files into `assets/img/gallery/` with exactly these names. An empty slot shows its label until the file exists.
+Story first, facts last. Each section is a kicker on the left and a headline,
+a lede and long paragraphs on the right, followed by a large image or a pair.
+No bullet lists in the story; numbers live only in "In brief".
 
-| File | Slot |
-|---|---|
-| 01-living.jpg | full width |
-| 02-kitchen.jpg, 03-dining.jpg | pair |
-| 04-pool.jpg | full width (in place) |
-| 05-primary-suite.jpg, 06-primary-bath.jpg | pair |
-| 07-terrace-sunset.jpg | full width |
-| 08-bedroom-2.jpg, 09-bedroom-3.jpg | pair |
-| 11-water-side.jpg (in place), 10-dock.jpg | pair |
-| 12-drone.jpg | full width |
-| 13-bedroom-4.jpg, 14-facade-dusk.jpg | pair |
-
-Export at 2400 px on the long side, JPG quality around 82, under 500 KB each.
-Floor plans go to `assets/img/plans/level-1.png` … `level-3.png`.
-
-## Still to fill
-
-* Room lists per level in `index.html`, marked `[ROOMS FROM MODEL]`.
-* Drive times in Location are approximate, check them once.
+Images live in `assets/img/` and `assets/img/gallery/` and are referenced
+directly from `index.html`.
 
 ## Form
 
