@@ -48,21 +48,26 @@
     msg.className = 'form__msg';
     msg.textContent = 'Sending…';
 
+    // Fast path: AJAX. If FormSubmit answers anything but a clear success
+    // (network error, not activated yet, rate limit), fall back to a normal
+    // form POST, which always reaches FormSubmit and then returns the visitor
+    // to thanks.html.
     fetch('https://formsubmit.co/ajax/snehota@gallerypoint.cz', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
     })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function () {
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
+      .then(function (res) {
+        if (String(res.success) !== 'true') throw new Error(res.message || 'not sent');
         form.reset();
+        submit.disabled = false;
         msg.className = 'form__msg ok';
         msg.textContent = 'Thank you. We will be in touch within one business day.';
       })
       .catch(function () {
-        msg.className = 'form__msg';
-        msg.innerHTML = 'The message could not be sent. Please write to <a href="mailto:snehota@gallerypoint.cz">snehota@gallerypoint.cz</a>.';
-      })
-      .then(function () { submit.disabled = false; });
+        msg.textContent = 'Sending…';
+        HTMLFormElement.prototype.submit.call(form);
+      });
   });
 })();
