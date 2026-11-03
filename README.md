@@ -13,9 +13,8 @@ og.jpg                     share image 1200×630
 assets/css/gp-project.css  shared Gallery Point project template
 assets/js/site.js          mobile menu and viewing form
 assets/fonts/              Larken (self hosted)
-assets/img/                hero, sketch, facade
-assets/img/gallery/        gallery photos (see names below)
-assets/img/plans/          level-1.png, level-2.png, level-3.png
+assets/img/                hero-facade.jpg, sketch-facade.jpg, facade-built.jpg
+assets/img/gallery/        interior and exterior renderings, numbered 01–14
 ```
 
 ## Page structure
@@ -35,7 +34,7 @@ once and the form is live.
 
 ## Deploy (GitHub Pages)
 
-1. New repository, e.g. `davidsiwy/bayousound3361`, push these files to `main`.
+1. Repository `davidsiwy/Bayou-Sound`, these files on `main`.
 2. Settings › Pages › Deploy from branch › `main` / root.
 3. Custom domain `bayousound3361.com`, then Enforce HTTPS.
 4. DNS at Active24:
